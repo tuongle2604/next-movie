@@ -6,6 +6,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --primary: 339, 55%, 67%;
+  --input: 339, 55%, 67%;
+  --background: 360, 100%, 100%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,16 +22,22 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  // background: linear-gradient(
+  //     to bottom,
+  //     transparent,
+  //     rgb(var(--background-end-rgb))
+  //   )
+  //   rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .box-shadow {
+    box-shadow: 
+      0px 2px 4px -1px rgba(0,0,0,0.2),
+      0px 4px 5px 0px rgba(0,0,0,0.14),
+      0px 1px 10px 0px rgba(0,0,0,0.12);
   }
 }
