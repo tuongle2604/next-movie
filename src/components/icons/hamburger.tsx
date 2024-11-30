@@ -1,22 +1,50 @@
 import { IconProps } from "@/types/icon";
 
-const IconHamburger = ({ color = 'currentColor', ...props }: IconProps) => (
+const IconHamburger = ({ ...props }: IconProps) => (
   <svg
-    width="15"
-    height="15"
-    viewBox="0 0 15 15"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 10 10"
+    strokeWidth="0.9"
+    fill="rgba(0,0,0,0)"
+    strokeLinecap="round"
     {...props}
   >
-    <path
-      d="M1.5 3C1.22386 3 1 3.22386 1 3.5C1 3.77614 1.22386 4 1.5 4H13.5C13.7761 4 14 3.77614 14 3.5C14 3.22386 13.7761 3 13.5 3H1.5ZM1 7.5C1 7.22386 1.22386 7 1.5 7H13.5C13.7761 7 14 7.22386 14 7.5C14 7.77614 13.7761 8 13.5 8H1.5C1.22386 8 1 7.77614 1 7.5ZM1 11.5C1 11.2239 1.22386 11 1.5 11H13.5C13.7761 11 14 11.2239 14 11.5C14 11.7761 13.7761 12 13.5 12H1.5C1.22386 12 1 11.7761 1 11.5Z"
-      fill={color}
-      fillRule="evenodd"
-      clipRule="evenodd"
-    />
+    <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
+      <animate
+        dur="0.2s"
+        attributeName="d"
+        values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7"
+        fill="freeze"
+        begin="start.begin"
+      />
+      <animate
+        dur="0.2s"
+        attributeName="d"
+        values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7"
+        fill="freeze"
+        begin="reverse.begin"
+      />
+    </path>
+    {/* <rect width="10" height="10" stroke="none">
+      <animate dur="2s" id="reverse" attributeName="width" begin="click" />
+    </rect>
+    <rect width="10" height="10" stroke="none">
+      <animate
+        dur="0.001s"
+        id="start"
+        attributeName="width"
+        values="10;0"
+        fill="freeze"
+        begin="click"
+      />
+      <animate
+        dur="0.001s"
+        attributeName="width"
+        values="0;10"
+        fill="freeze"
+        begin="reverse.begin"
+      />
+    </rect> */}
   </svg>
-)
+);
 
-export default IconHamburger
-
+export default IconHamburger;

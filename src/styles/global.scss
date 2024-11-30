@@ -3,31 +3,68 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background: 0 0% 100%;
+  --foreground: 200 80% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 85% 5%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 85% 5%;
+  --primary: 225 85% 55%;
+  --primary-light: 225 85% 55%;
+  --primary-dark: 225 80% 40%;
+  --primary-foreground: 220 40% 98%;
+  --secondary: 200 24% 32%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 240 20% 90%;
+  --muted-foreground: 240 5% 45%;  
+  // --muted: 215 20% 40%;
+  // --muted-foreground: 215 20% 65%;
+  --accent: 215 50% 95%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --radius: 0.6rem;
 
-  --primary: 339, 55%, 67%;
-  --input: 339, 55%, 67%;
-  --background: 360, 100%, 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.dark {
+  --background: 222 35% 8%;
+  --foreground: 215 20% 65%; // hsl(215deg 20.22% 65.1%)
+  --muted: 222 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --popover: 222 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --card: 222 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --border: 220 40% 30%;
+  --input: 222 32.6% 17.5%;
+  --primary: 222 85% 45%;
+  --primary-light: 210 90% 60%; //hsl(198.44deg 93.2% 59.61%)
+  --primary-foreground: 222 47.4% 11.2%;
+  --secondary: 222 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --accent: 222 85% 10%; 
+  --accent-foreground: 210 97% 80%; 
+  // --muted: 217.2 32.6% 17.5%;
+  // --muted-foreground: 215 20.2% 65.1%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  // background: linear-gradient(
-  //     to bottom,
-  //     transparent,
-  //     rgb(var(--background-end-rgb))
-  //   )
-  //   rgb(var(--background-start-rgb));
+  background: hsl(var(--background));
+  background-image: radial-gradient(circle farthest-side,rgba(10, 17, 31, 0.15),rgba(84, 0, 219, 0));
+  transition: background 0.4s;
+  color: hsl(var(--foreground));
 }
 
 @layer utilities {
@@ -35,9 +72,18 @@ body {
     text-wrap: balance;
   }
   .box-shadow {
-    box-shadow: 
-      0px 2px 4px -1px rgba(0,0,0,0.2),
-      0px 4px 5px 0px rgba(0,0,0,0.14),
-      0px 1px 10px 0px rgba(0,0,0,0.12);
+    box-shadow:
+      0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  @supports (cx: 1) {
+    .moon-circle-animate {
+      cx: 16;
+      transform: translateX(0) !important;
+      transition: cx 0.5s cubic-bezier(0, 0, 0, 1) 0.25s;
+      // transition: cx 0.25s cubic-bezier(0.5, 1.75, 0.75, 1.25);
+    }
   }
 }

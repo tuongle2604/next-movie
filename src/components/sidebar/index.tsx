@@ -1,42 +1,43 @@
 import Item from "./item";
+import { getGenreList } from "@/features/movies/api/genre";
 
-export default function SideBar() {
+interface SideBarProps {
+  lang: string;
+}
+
+export default async function SideBar({ lang }: SideBarProps) {
+  const { genres } = await getGenreList(lang);
+
   const discover = [
     {
-      icon: "",
       label: "Popular",
-      href: "/popular"
+      href: "/popular",
     },
     {
-      icon: "",
       label: "Top Rated",
-      href: "/top-rated"
+      href: "/top-rated",
     },
     {
-      icon: "",
-      label: "Upcomming",
-      href: "/up-comming"
-    }
-  ];
-
-  const genres = [
-    {
-      icon: "",
-      label: "Action",
-      href: "/action"
+      label: "Upcoming",
+      href: "/upcoming",
     },
   ];
 
   return (
-    <div>
-      {/* Discover */}
-      <div>
-        <p>Discover</p>
-        {
-          discover.map(item => <Item key={item.label} label={item.label} />)
-        }
+    <div className="text-sm md:text-base">
+      <div className="flex flex-col mb-5">
+        <p className="mb-2 font-bold">Discover</p>
+        {discover.map((item) => (
+          <Item key={item.label} label={item.label} href={item.href} />
+        ))}
       </div>
-      {/* This is a Side bar */}
+
+      <div className="flex flex-col">
+        <p className="mb-2 font-bold">Genres</p>
+        {genres?.map((item) => (
+          <Item key={item.id} label={item.name} href={`/genre/${item.id}`} />
+        ))}
+      </div>
     </div>
-  )
+  );
 }

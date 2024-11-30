@@ -12,11 +12,17 @@
   "eslint.validate": ["html", "css", "javascript", "typescript"],
   "eslint.format.enable": true,
   "eslint.quiet": false,
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "[javascriptreact]": {
+  //   "editor.defaultFormatter": "vscode.typescript-language-features"
+  // },
+  // "[html]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[typescriptreact]": {
+  //   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  // },
+  // "[json]": {
+  //   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  // }
 }
