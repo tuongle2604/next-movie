@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: MovieDetailProps) {
     title: movie.title,
     description: movie.overview,
     openGraph: {
-      images: `${process.env.IMAGE_BASE_URL}/original/${movie.poster_path}`,
+      images: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/original/${movie.poster_path}`,
     },
   };
 }

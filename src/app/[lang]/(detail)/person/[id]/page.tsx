@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PersonDetailProps) {
   return {
     title: person.name,
     openGraph: {
-      images: `${process.env.IMAGE_BASE_URL}/original/${person.profile_path}`,
+      images: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/original/${person.profile_path}`,
     },
   };
 }

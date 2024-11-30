@@ -21,10 +21,10 @@ cd next-movie
 npm install
 ```
 
-3. Add IMAGE_BASE_URL to the `.env.local` file:
+3. Add NEXT_PUBLIC_IMAGE_BASE_URL to the `.env.local` file:
 
 ```bash
-IMAGE_BASE_URL=https://image.tmdb.org/t/p
+NEXT_PUBLIC_IMAGE_BASE_URL=https://image.tmdb.org/t/p
 ```
 
 4. Obtain an Access Token from [The Movie Database API](https://developers.themoviedb.org/3) and add it to the `.env.local` file:
