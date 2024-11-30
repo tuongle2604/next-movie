@@ -12,7 +12,7 @@ import Logo from "./opengraph-image.png";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:8080/"),
+  metadataBase: new URL("http://localhost:3000/"),
   alternates: {
     canonical: "/",
     languages: {

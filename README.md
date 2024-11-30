@@ -1,18 +1,44 @@
-"use strict";
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
-self["webpackHotUpdate_N_E"]("app/layout",{
+# Nextjs Movies App
 
-/***/ "(app-pages-browser)/./src/styles/globals.scss":
-/*!*********************************!*\
-  !*** ./src/styles/globals.scss ***!
-  \*********************************/
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+> A Movies App build with Next.js 15 and TMDB Api
 
-eval(__webpack_require__.ts("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"689cdf7fbc9d\");\nif (true) { module.hot.accept() }\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1wYWdlcy1icm93c2VyKS8uL3NyYy9zdHlsZXMvZ2xvYmFscy5zY3NzIiwibWFwcGluZ3MiOiI7QUFBQSwrREFBZSxjQUFjO0FBQzdCLElBQUksSUFBVSxJQUFJLGlCQUFpQiIsInNvdXJjZXMiOlsid2VicGFjazovL19OX0UvLi9zcmMvc3R5bGVzL2dsb2JhbHMuc2Nzcz8zNmUyIl
+Design base on [enhance-movies.com](https://enhance-movies.com).
+
+## Getting Started
+
+To get started with the Movies web app, follow these steps:
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/tuongle2604/next-movie.git
+```
+
+2. Install the dependencies:
+
+```bash
+cd movies
+npm install
+```
+
+3. Obtain an API key from [The Movie Database API](https://developers.themoviedb.org/3) and add it to the `.env.local` file:
+
+```bash
+TMDB_KEY=your-api-key
+IMAGE_BASE_URL=https://image.tmdb.org/t/p
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+```
+
+5. Open your browser and navigate to `http://localhost:3000` to view the Movies web app.
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/) - A React framework for building server-side rendered and static websites.
+- [shadcn/ui](https://ui.shadcn.com/) - UI library for fundamental ui elements.
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
+- [The Movie Database API](https://developers.themoviedb.org/3) - An API that provides access to a vast collection of movie and TV show data.
