@@ -21,20 +21,25 @@ cd next-movie
 npm install
 ```
 
-3. Obtain an API key from [The Movie Database API](https://developers.themoviedb.org/3) and add it to the `.env.local` file:
+3. Add IMAGE_BASE_URL to the `.env.local` file:
 
 ```bash
-TMDB_KEY=your-api-key
 IMAGE_BASE_URL=https://image.tmdb.org/t/p
 ```
 
-4. Start the development server:
+4. Obtain an Access Token from [The Movie Database API](https://developers.themoviedb.org/3) and add it to the `.env.local` file:
+
+```bash
+TMDB_ACCESS_TOKEN=your-access-token
+```
+
+5. Start the development server:
 
 ```bash
 npm run dev
 ```
 
-5. Open your browser and navigate to `http://localhost:3000` to view the Movies web app.
+6. Open your browser and navigate to `http://localhost:3000` to view the Movies web app.
 
 ## Technologies Used
 

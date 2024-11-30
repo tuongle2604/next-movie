@@ -2,8 +2,7 @@
 const apiBaseUrl = "https://api.themoviedb.org/3";
 
 const fetchOptions = {
-  Authorization:
-    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNDkwNDlmZjc4ZDM1YmMxMjVkMjc3NmM5NWY4NTk3YSIsIm5iZiI6MTczMDgzMzcxNC42ODQ5NDUzLCJzdWIiOiI2NTUxZmZjNGZiNTI5OTAxM2E2ZWQzNmIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.XsO3ajR2FxIQBbqwwCLG7O_EwszXkb9Objgled2j0hU",
+  Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`,
   accept: "application/json",
 };
 
