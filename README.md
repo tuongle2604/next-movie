@@ -17,7 +17,7 @@ git clone https://github.com/tuongle2604/next-movie.git
 2. Install the dependencies:
 
 ```bash
-cd movies
+cd next-movie
 npm install
 ```
 
