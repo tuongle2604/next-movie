@@ -66,7 +66,7 @@ export default function Header({ children }: { children: React.ReactNode }) {
 
         <div className="flex w-full items-center md:gap-2">
           <Logo className="mr-auto" />
-          <ThemeSwitch isDarkMode={theme === "dark"} onClick={toggleTheme} />
+          <ThemeSwitch theme={theme} onClick={toggleTheme} />
           <LanguageButton />
           <SearchButton />
         </div>

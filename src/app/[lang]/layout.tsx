@@ -45,7 +45,7 @@ export default async function RootLayout({
     <html suppressHydrationWarning>
       <body className={inter.className} id="#__next">
         <HolyLoader />
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <Header>
             <SideBar lang={lang} />
           </Header>

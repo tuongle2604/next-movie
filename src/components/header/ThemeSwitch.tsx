@@ -3,15 +3,18 @@ import { Button } from "@/components/ui/button";
 
 interface ThemeSwitchProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  isDarkMode?: boolean;
+  theme?: string | undefined;
 }
 
 export default function ThemeSwitch({
   color = "currentColor",
-  isDarkMode = true,
+  theme = "dark",
   onClick,
   ...props
 }: ThemeSwitchProps) {
+  if (!theme) return <></>;
+  const isDarkMode = theme === "dark";
+
   return (
     <Button
       className="group h-9 w-9 "
