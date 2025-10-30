@@ -25,13 +25,13 @@ async function fetchApi(path: string, params: any = {}) {
   });
 
   const data = await resp?.json();
+  console.log(process.env.TMDB_ACCESS_TOKEN);
+
+  console.log(resp);
 
   if (!resp.ok || !data) {
-    console.log("here");
-
     console.log(resp);
 
-    throw new Error(data);
     throw new Error("Network Error");
   }
 
