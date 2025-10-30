@@ -17,7 +17,10 @@ async function fetchApi(path: string, params: any = {}) {
 
   url.pathname += path;
   url.search = searchParams.toString();
-  // console.log(url.toString());
+
+  console.log("**********");
+  console.log(url.toString());
+  console.log(fetchOptions);
 
   const resp = await fetch(url.toString(), {
     method: "GET",
