@@ -1,5 +1,6 @@
 // import "server-only";
-const apiBaseUrl = "https://api.themoviedb.org/3";
+const apiBaseUrl =
+  process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.themoviedb.org/3";
 
 const fetchOptions = {
   Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`,
@@ -25,7 +26,12 @@ async function fetchApi(path: string, params: any = {}) {
 
   const data = await resp?.json();
 
-  if (!resp.ok || !data) throw new Error("Network Error");
+  if (!resp.ok || !data) {
+    console.log(resp);
+
+    throw new Error(data);
+    throw new Error("Network Error");
+  }
 
   return data;
 }
