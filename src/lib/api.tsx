@@ -27,6 +27,8 @@ async function fetchApi(path: string, params: any = {}) {
   const data = await resp?.json();
 
   if (!resp.ok || !data) {
+    console.log("here");
+
     console.log(resp);
 
     throw new Error(data);
