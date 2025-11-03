@@ -15,8 +15,7 @@ export default function HeroBanner({ media }: { media: Media }) {
         style={{ objectFit: "cover" }}
         sizes="100vw"
         original={true}
-        priority={true}
-        unoptimized
+        preload={true}
       />
       <div className="absolute left-0 top-0 flex h-full w-full flex-col justify-center bg-black/50 p-5 md:pl-10">
         <div className="m-auto w-full max-w-screen-3xl text-secondary-foreground">
