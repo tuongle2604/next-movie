@@ -18,19 +18,12 @@ async function fetchApi(path: string, params: any = {}) {
   url.pathname += path;
   url.search = searchParams.toString();
 
-  console.log("**********");
-  console.log(url.toString());
-  console.log(fetchOptions);
-
   const resp = await fetch(url.toString(), {
     method: "GET",
     headers: fetchOptions,
   });
 
   const data = await resp?.json();
-  console.log(process.env.TMDB_ACCESS_TOKEN);
-
-  console.log(resp);
 
   if (!resp.ok || !data) {
     console.log(resp);
