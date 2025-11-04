@@ -2,7 +2,9 @@
 
 > A Movies App build with Next.js 15 and TMDB Api
 
-Design base on [enhance-movies.com](https://enhance-movies.com).
+The design of this project is based on [enhance-movies.com](https://enhance-movies.com).  
+You can also explore the source code of the original project here:
+[https://github.com/enhance-dev/enhance-movies](https://github.com/enhance-dev/enhance-movies)
 
 ## Getting Started
 
