@@ -4,7 +4,7 @@ import { getHomeMovies } from "@/features/movies/api/movies";
 import { getMovieTrailer } from "@/features/movies/api/videos";
 export { generateDefaultStaticParams as generateStaticParams } from "@/lib/utils-server";
 
-export const revalidate = 600;
+export const revalidate = 86400;
 
 export default async function Page({
   params,
@@ -17,9 +17,6 @@ export default async function Page({
   const trailer = await getMovieTrailer(popularMovies[0].id);
   const heroMedia = popularMovies[0];
   heroMedia.trailer = trailer;
-  console.log("******************");
-  console.log("home page");
-  console.log(trailer);
 
   return (
     <Main media={heroMedia} lang={lang}>
