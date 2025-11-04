@@ -1,19 +1,14 @@
-import { redirect } from "next/navigation";
 import MovieCollections from "@/features/movies/components/movie-collections";
-// import { getMovies } from "@/api";
 import { ListPagination } from "@/components/list-pagination";
 import { getMovies } from "@/features/movies/api/movies";
+export { generateDefaultStaticParams as generateStaticParams } from "@/lib/utils-server";
+
 interface DiscoverProps {
-  searchParams: Promise<{ page: string }>;
-  params: Promise<{ lang: string }>;
+  params: Promise<{ lang: string; page: string }>;
 }
 
-export default async function Discover({
-  searchParams,
-  params,
-}: DiscoverProps) {
-  const { page = 1 } = await searchParams;
-  const { lang } = await params;
+export default async function Discover({ params }: DiscoverProps) {
+  const { lang, page = 1 } = await params;
 
   const data = await getMovies({ type: "discover", lang });
 

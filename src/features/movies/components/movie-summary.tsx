@@ -59,6 +59,7 @@ export default function MovieSummary({ movie }: MovieSummaryProps) {
               className="flex items-center underline-offset-2 hover:underline"
               key={genre.id}
               href={`/genre/${genre.id}`}
+              prefetch={false}
             >
               <IconCircleDot className="mr-2" width={20} height={20} />
               {genre.name}
@@ -82,7 +83,8 @@ export default function MovieSummary({ movie }: MovieSummaryProps) {
                   <TooltipTrigger>
                     <NextLink
                       href={`/person/${cast.id}`}
-                      className="inline-flex w-16 h-24 shrink-0 hover:scale-105 "
+                      className="inline-flex h-24 w-16 shrink-0 hover:scale-105 "
+                      prefetch={false}
                     >
                       <NextImage
                         src={cast.profile_path}

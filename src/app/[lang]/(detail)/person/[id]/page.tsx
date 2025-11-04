@@ -2,19 +2,20 @@ import PersonSummary from "@/features/persons/components/person-summary";
 import MovieCollections from "@/features/movies/components/movie-collections";
 import NextImage from "@/components/ui/next-image";
 import { gerPerson } from "@/features/persons/api";
-
+export { generateDefaultStaticParams as generateStaticParams } from "@/lib/utils-server";
 // type PersonParamsProps = {
 //   id: string;
 // };
 
 type PersonDetailProps = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: string; lang: string }>;
 };
 
 export async function generateMetadata({ params }: PersonDetailProps) {
-  const { id } = await params;
+  const { id, lang } = await params;
   const person = await gerPerson(id, {
     append_to_response: "credits,recommendations,videos",
+    lang,
   });
 
   return {
@@ -26,9 +27,10 @@ export async function generateMetadata({ params }: PersonDetailProps) {
 }
 
 export default async function PersonDetail({ params }: PersonDetailProps) {
-  const { id } = await params;
+  const { id, lang } = await params;
   const person = await gerPerson(id, {
     append_to_response: "credits,recommendations",
+    lang,
   });
 
   const getMoviesByPerson = (person: Person): Media[] => {

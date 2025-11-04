@@ -16,6 +16,7 @@ import ThemeSwitch from "./ThemeSwitch";
 import SearchButton from "./SearchButton";
 import LanguageButton from "./LanguageButton";
 import { useTheme } from "next-themes";
+import { Suspense } from "react";
 
 export default function Header({ children }: { children: React.ReactNode }) {
   const ref = useRef(null);
@@ -47,7 +48,12 @@ export default function Header({ children }: { children: React.ReactNode }) {
           </VisuallyHidden.Root>
 
           <SheetTrigger className="mr-auto" asChild>
-            <Button variant={"ghost"} size={"icon"} className=" h-9 md:hidden">
+            <Button
+              variant={"ghost"}
+              size={"icon"}
+              className=" h-9 md:hidden"
+              aria-label="Toggle menu"
+            >
               <IconHamburger
                 width={28}
                 height={28}
@@ -64,12 +70,14 @@ export default function Header({ children }: { children: React.ReactNode }) {
           </SheetContent>
         </Sheet>
 
-        <div className="flex w-full items-center md:gap-2">
-          <Logo className="mr-auto" />
-          <ThemeSwitch theme={theme} onClick={toggleTheme} />
-          <LanguageButton />
-          <SearchButton />
-        </div>
+        <Suspense>
+          <div className="flex w-full items-center md:gap-2">
+            <Logo className="mr-auto" />
+            <ThemeSwitch theme={theme} onClick={toggleTheme} />
+            <LanguageButton />
+            <SearchButton />
+          </div>
+        </Suspense>
       </div>
     </header>
   );

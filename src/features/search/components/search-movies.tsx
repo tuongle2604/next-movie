@@ -26,9 +26,9 @@ export default async function SearchMovies({
         ))}
       </div>
 
-      <div className="mt-14">
+      {/* <div className="mt-14">
         <ListPagination currentPage={page} totalPages={data.total_pages} />
-      </div>
+      </div> */}
     </div>
   );
 }

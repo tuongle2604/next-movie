@@ -1,10 +1,5 @@
 "use client";
-import {
-  useRouter,
-  usePathname,
-  useParams,
-  useSearchParams,
-} from "next/navigation";
+import { useRouter, usePathname, useParams } from "next/navigation";
 import { isLinkHasLocale } from "@/lib/utils";
 
 export const useClientNavigate = () => {

@@ -3,6 +3,8 @@ import SearchMovies from "@/features/search/components/search-movies";
 import { Suspense } from "react";
 import MovieCollectionsLoading from "@/features/movies/components/movie-collections-loading";
 
+// export { generateDefaultStaticParams as generateStaticParams } from "@/lib/utils-server";
+
 type SearchProps = {
   params: Promise<{ lang: string }>;
   searchParams: Promise<{ query: string; page: string }>;

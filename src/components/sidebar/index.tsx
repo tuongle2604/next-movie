@@ -1,12 +1,12 @@
 import Item from "./item";
-import { getGenreList } from "@/features/movies/api/genre";
-
+// import { getGenreList } from "@/features/movies/api/genre";
+import { GENRES } from "@/lib/constant";
 interface SideBarProps {
   lang: string;
 }
 
 export default async function SideBar({ lang }: SideBarProps) {
-  const { genres } = await getGenreList(lang);
+  // const { genres } = await getGenreList(lang);
 
   const discover = [
     {
@@ -25,7 +25,7 @@ export default async function SideBar({ lang }: SideBarProps) {
 
   return (
     <div className="text-sm md:text-base">
-      <div className="flex flex-col mb-5">
+      <div className="mb-5 flex flex-col">
         <p className="mb-2 font-bold">Discover</p>
         {discover.map((item) => (
           <Item key={item.label} label={item.label} href={item.href} />
@@ -34,8 +34,8 @@ export default async function SideBar({ lang }: SideBarProps) {
 
       <div className="flex flex-col">
         <p className="mb-2 font-bold">Genres</p>
-        {genres?.map((item) => (
-          <Item key={item.id} label={item.name} href={`/genre/${item.id}`} />
+        {GENRES?.map((item) => (
+          <Item key={item.id} label={item.name} href={`/genre/${item.code}`} />
         ))}
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams, useParams } from "next/navigation";
 
 export const usePagination = ({
   totalPages,
@@ -11,6 +11,7 @@ export const usePagination = ({
 }) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const params = useParams<{ page: string }>();
   const numbers = [];
 
   // Determine the range of page numbers to display
@@ -37,10 +38,12 @@ export const usePagination = ({
   }
 
   function setPage(num: number) {
-    const search = new URLSearchParams(searchParams);
-    search.set("page", num.toString());
+    if (num < 1 || num > totalPages) return "#";
 
-    return `${pathname}?${search.toString()}`;
+    // Remove any trailing number in current pathname and replace with new page number
+    // Example: "/en/category/2" → "/en/category/3"
+    const basePath = pathname.replace(/\/\d+$/, "");
+    return `${basePath}/${num}`;
   }
 
   function pageLink(page: string | number) {

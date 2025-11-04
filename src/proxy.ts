@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { regions, defaultLocale } from "@/lib/regions";
 import type { NextRequest } from "next/server";
 import { isLinkHasLocale } from "./lib/utils";
-export function middleware(request: NextRequest) {
+
+export function proxy(request: NextRequest) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
 

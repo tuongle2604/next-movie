@@ -75,13 +75,17 @@ export default function Footer() {
         </p>
 
         <div className="flex justify-center gap-5">
-          <Link href={"#"}>
+          <Link href={"#"} aria-label="linkedin">
             <IconLinkedin width={30} height={30} />
           </Link>
-          <Link href="#">
+          <Link
+            href="https://github.com/tuongle2604/next-movie"
+            target="_blank"
+            aria-label="github"
+          >
             <IconGithub width={30} height={30} />
           </Link>
-          <Link href="#">
+          <Link href="#" aria-label="link">
             <IconLink width={30} height={30} />
           </Link>
         </div>

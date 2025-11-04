@@ -1,6 +1,11 @@
 import { fetchApi } from "@/lib/api";
 
-function gerPerson(id: string, params?: PayloadParams): Promise<Person> {
+interface PersonParams {
+  append_to_response: string;
+  lang: string;
+}
+
+function gerPerson(id: string, params?: PersonParams): Promise<Person> {
   return fetchApi(`/person/${id}`, params);
 }
 

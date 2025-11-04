@@ -24,17 +24,25 @@ export default function LanguageButton() {
   function onSelectLanguage(code: string) {
     const currentPath = pathname.replace(`/${lang}`, "");
 
-    if (code === defaultLocale) {
-      router.push(`${currentPath}?${searchParams.toString()}`);
+    if (code === lang) {
       return;
     }
+    // if (code === defaultLocale) {
+    //   router.push(`${currentPath}?${searchParams.toString()}`);
+    //   return;
+    // }
     router.push(`/${code}/${currentPath}?${searchParams.toString()}`);
   }
 
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <Button variant={"ghost"} size="icon" className="h-9 w-9 ">
+        <Button
+          variant={"ghost"}
+          size="icon"
+          className="h-9 w-9 "
+          aria-label="Select Language"
+        >
           <IconLanguage />
         </Button>
       </DropdownMenuTrigger>

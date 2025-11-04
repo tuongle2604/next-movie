@@ -27,12 +27,13 @@ export default function Search() {
           variant={"outline"}
           size={"sm"}
           className="flex gap-2 px-2 md:border-accent md:px-3"
+          aria-label="Open search"
         >
-          <IconSearch className="w-5 h-5 cursor-pointer " />
+          <IconSearch className="h-5 w-5 cursor-pointer " />
           <span className="hidden md:inline-block">Search</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="px-5 py-0 bg-transparent border-none top-20 md:top-28 md:px-0">
+      <DialogContent className="top-20 border-none bg-transparent px-5 py-0 md:top-28 md:px-0">
         <VisuallyHidden.Root>
           <DialogTitle>Search</DialogTitle>
         </VisuallyHidden.Root>

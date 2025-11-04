@@ -42,7 +42,7 @@ export default async function RootLayout({
   const { lang } = await params;
 
   return (
-    <html suppressHydrationWarning>
+    <html suppressHydrationWarning lang={lang}>
       <body className={inter.className} id="#__next">
         <HolyLoader />
         <ThemeProvider attribute="class" defaultTheme="dark">

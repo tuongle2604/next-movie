@@ -3,14 +3,17 @@ import MovieCollections from "@/features/movies/components/movie-collections";
 import NextImage from "@/components/ui/next-image";
 import { getMovie } from "@/features/movies/api/movies";
 
+export { generateDefaultStaticParams as generateStaticParams } from "@/lib/utils-server";
+
 type MovieDetailProps = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: string; lang: string }>;
 };
 
 export async function generateMetadata({ params }: MovieDetailProps) {
-  const { id } = await params;
+  const { id, lang } = await params;
   const movie = await getMovie(id, {
     append_to_response: "credits,recommendations,videos",
+    lang,
   });
 
   return {
@@ -23,9 +26,10 @@ export async function generateMetadata({ params }: MovieDetailProps) {
 }
 
 export default async function MovieDetail({ params }: MovieDetailProps) {
-  const { id } = await params;
+  const { id, lang } = await params;
   const movie = await getMovie(id, {
     append_to_response: "credits,recommendations,videos",
+    lang,
   });
 
   return (
@@ -38,7 +42,7 @@ export default async function MovieDetail({ params }: MovieDetailProps) {
           height={540}
           sizes="360px"
           className="mb-5 self-start md:mb-0 md:flex-[180px] xl:flex-[360px]"
-          priority={true}
+          preload={true}
           unoptimized
         />
 

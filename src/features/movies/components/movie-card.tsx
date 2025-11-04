@@ -11,7 +11,11 @@ interface MovieCardProps {
 export default function MovieCard({ movie, className = "" }: MovieCardProps) {
   return (
     <div className={cn("group flex min-w-36 shrink-0", className)}>
-      <NextLink href={`/movie/${movie?.id}`} className="flex w-full flex-col">
+      <NextLink
+        href={`/movie/${movie?.id}`}
+        className="flex w-full flex-col"
+        prefetch={false}
+      >
         <div
           className={cn(
             "relative mb-2 aspect-[2/3] overflow-hidden md:mb-3",

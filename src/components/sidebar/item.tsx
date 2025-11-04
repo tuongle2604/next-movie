@@ -13,6 +13,7 @@ export default function Item({ label, href = "" }: ItemProps) {
     <NextLink
       href={href}
       className="text-md px-4 py-2 underline-offset-2 hover:underline "
+      prefetch={false}
     >
       {label}
     </NextLink>

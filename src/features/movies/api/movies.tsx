@@ -10,6 +10,7 @@ interface GetMovies {
 
 interface Params {
   append_to_response: string;
+  lang: string;
 }
 
 function getMovie(id: string, params?: Params): Promise<Media> {

@@ -2,10 +2,9 @@ import MovieCollections from "@/features/movies/components/movie-collections";
 import { ListPagination } from "@/components/list-pagination";
 import { getMovies } from "@/features/movies/api/movies";
 import { popular } from "@/data/metadata";
-
+export { generateDefaultStaticParams as generateStaticParams } from "@/lib/utils-server";
 interface DiscoverProps {
-  searchParams: Promise<{ page: string }>;
-  params: Promise<{ lang: string }>;
+  params: Promise<{ lang: string; page: string }>;
 }
 
 export async function generateMetadata() {
@@ -15,9 +14,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Pupular({ searchParams, params }: DiscoverProps) {
-  const { page = 1 } = await searchParams;
-  const { lang } = await params;
+export default async function Pupular({ params }: DiscoverProps) {
+  const { lang, page = 1 } = await params;
 
   const data = await getMovies({ type: "popular", lang, page });
 

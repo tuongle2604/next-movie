@@ -21,6 +21,7 @@ export default function ThemeSwitch({
       size={"icon"}
       variant={"ghost"}
       onClick={onClick}
+      aria-label="Toggle theme"
     >
       <svg
         className="sun-and-moon"
