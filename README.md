@@ -6,7 +6,13 @@ The design of this project is based on [enhance-movies.com](https://enhance-movi
 You can also explore the source code of the original project here:
 [https://github.com/enhance-dev/enhance-movies](https://github.com/enhance-dev/enhance-movies)
 
-## Getting Started
+## 🌐 Live Demo
+
+👉 [https://next-movie.tuongle.dev](https://next-movie.tuongle.dev)
+
+<p align="center"><img src="public/next-movie-banner.png" alt="Next.js Movies App Banner" width="100%" /> </p>
+
+## 🚀 Getting Started
 
 To get started with the Movies web app, follow these steps:
 
@@ -43,7 +49,7 @@ npm run dev
 
 6. Open your browser and navigate to `http://localhost:3000` to view the Movies web app.
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 - [Next.js](https://nextjs.org/) - A React framework for building server-side rendered and static websites.
 - [shadcn/ui](https://ui.shadcn.com/) - UI library for fundamental ui elements.
