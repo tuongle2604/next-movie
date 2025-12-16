@@ -6,10 +6,6 @@ The design of this project is based on [enhance-movies.com](https://enhance-movi
 You can also explore the source code of the original project here:
 [https://github.com/enhance-dev/enhance-movies](https://github.com/enhance-dev/enhance-movies)
 
-## 🌐 Live Demo
-
-👉 [https://next-movie.tuongle.dev](https://next-movie.tuongle.dev)
-
 <p align="center"><img src="public/next-movie-banner.png" alt="Next.js Movies App Banner" width="100%" /> </p>
 
 ## 🚀 Getting Started
