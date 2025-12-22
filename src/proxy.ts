@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { regions, defaultLocale } from "@/lib/regions";
+import { defaultLocale } from "@/lib/regions";
 import type { NextRequest } from "next/server";
 import { isLinkHasLocale } from "./lib/utils";
 
