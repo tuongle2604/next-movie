@@ -39,9 +39,11 @@ phases:
           "AWSEBDockerrunVersion": 1,
           "Image": {
             "Name": "%s:%s",
-            "Update": "true"
+            "Update": true
           },
-          "Ports": [{ "ContainerPort": 3000 }]
+          "Ports": [
+            { "ContainerPort": 3000 }
+          ]
         }' "$REPOSITORY_URI" "$IMAGE_TAG" > Dockerrun.aws.json
 
 artifacts:
