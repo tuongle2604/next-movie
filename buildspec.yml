@@ -35,18 +35,9 @@ phases:
       - docker push $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION
       - echo "Preparing Dockerrun for Elastic Beanstalk"
       - |
-        printf '{
-          "AWSEBDockerrunVersion": "1",
-          "Image": {
-            "Name": "%s:%s",
-            "Update": true
-          },
-          "Ports": [
-            { "ContainerPort": 3000 }
-          ]
-        }' "$REPOSITORY_URI" "$IMAGE_TAG" > Dockerrun.aws.json
+        printf '{"AWSEBDockerrunVersion":"1","Image":{"Name":"%s:%s","Update":"true"},"Ports":[{"ContainerPort":3000}]}' "$REPOSITORY_URI" "$IMAGE_TAG" > Dockerrun.aws.json
       - echo "Zipping Dockerrun.aws.json for Elastic Beanstalk"
-      - zip Dockerrun.aws.json.zip Dockerrun.aws.json
+      - zip -r Dockerrun.aws.json.zip Dockerrun.aws.json
 artifacts:
   files:
     - Dockerrun.aws.json.zip
