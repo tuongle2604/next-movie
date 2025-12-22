@@ -36,7 +36,7 @@ phases:
       - echo "Preparing Dockerrun for Elastic Beanstalk"
       - |
         printf '{
-          "AWSEBDockerrunVersion": 1,
+          "AWSEBDockerrunVersion": "1",
           "Image": {
             "Name": "%s:%s",
             "Update": true
