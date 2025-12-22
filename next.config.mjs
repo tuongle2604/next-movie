@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // cacheComponents: true,
+  output: "standalone",
   images: {
     deviceSizes: [640, 1200, 1920, 3840],
     remotePatterns: [

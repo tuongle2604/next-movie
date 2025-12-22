@@ -1,0 +1,47 @@
+version: 0.2
+
+env:
+  variables:
+    IMAGE_TAG: latest
+    NEXT_PUBLIC_IMAGE_BASE_URL: https://image.tmdb.org/t/p
+    NEXT_PUBLIC_API_BASE_URL: https://api.themoviedb.org/3
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+    commands:
+      - echo "Installing Docker"
+      - docker --version
+
+  pre_build:
+    commands:
+      - echo "Logging in to Amazon ECR"
+      - aws ecr get-login-password --region $AWS_REGION \
+        | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+      - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO
+
+  build:
+    commands:
+      - echo "Building Docker image"
+      - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
+      - docker tag $REPOSITORY_URI:$IMAGE_TAG $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION
+
+  post_build:
+    commands:
+      - echo "Pushing Docker images"
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - docker push $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - echo "Preparing Dockerrun for Elastic Beanstalk"
+      - printf '{
+          "AWSEBDockerrunVersion": 1,
+          "Image": {
+            "Name": "%s:%s",
+            "Update": "true"
+          },
+          "Ports": [{ "ContainerPort": 3000 }]
+        }' "$REPOSITORY_URI" "$IMAGE_TAG" > Dockerrun.aws.json
+
+artifacts:
+  files:
+    - Dockerrun.aws.json
