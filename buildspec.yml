@@ -1,4 +1,4 @@
-version: 0.2
+version: 1
 
 env:
   variables:
@@ -33,7 +33,8 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - docker push $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION
       - echo "Preparing Dockerrun for Elastic Beanstalk"
-      - printf '{
+      - |
+        printf '{
           "AWSEBDockerrunVersion": 1,
           "Image": {
             "Name": "%s:%s",
