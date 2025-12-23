@@ -29,6 +29,7 @@ npm install
 
 ```bash
 NEXT_PUBLIC_IMAGE_BASE_URL=https://image.tmdb.org/t/p
+NEXT_PUBLIC_API_BASE_URL="https://api.themoviedb.org/3"
 ```
 
 4. Obtain an Access Token from [The Movie Database API](https://developers.themoviedb.org/3) and add it to the `.env.local` file:
