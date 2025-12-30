@@ -3,8 +3,8 @@ version: 0.2
 env:
   variables:
     IMAGE_TAG: latest
-    NEXT_PUBLIC_IMAGE_BASE_URL: https://image.tmdb.org/t/p
-    NEXT_PUBLIC_API_BASE_URL: https://api.themoviedb.org/3
+    # NEXT_PUBLIC_IMAGE_BASE_URL: https://image.tmdb.org/t/p
+    # NEXT_PUBLIC_API_BASE_URL: https://api.themoviedb.org/3
 
 phases:
   install:
@@ -28,8 +28,6 @@ phases:
       # - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
       - |
         docker build \
-        --build-arg NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL \
-        --build-arg NEXT_PUBLIC_IMAGE_BASE_URL=$NEXT_PUBLIC_IMAGE_BASE_URL \
         --build-arg TMDB_ACCESS_TOKEN=$TMDB_ACCESS_TOKEN \
         -t $REPOSITORY_URI:$IMAGE_TAG .
       - docker tag $REPOSITORY_URI:$IMAGE_TAG $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION
