@@ -16,6 +16,9 @@
 # production
 /build
 
+# aws
+/aws/*
+
 # misc
 .DS_Store
 *.pem
