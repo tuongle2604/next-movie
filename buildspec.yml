@@ -25,7 +25,12 @@ phases:
   build:
     commands:
       - echo "Building Docker image"
-      - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
+      # - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
+      - docker build \
+        --build-arg NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL \
+        --build-arg NEXT_PUBLIC_IMAGE_BASE_URL=$NEXT_PUBLIC_IMAGE_BASE_URL \
+        --build-arg TMDB_ACCESS_TOKEN=$TMDB_ACCESS_TOKEN \
+        -t $REPOSITORY_URI:$IMAGE_TAG .
       - docker tag $REPOSITORY_URI:$IMAGE_TAG $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION
 
   post_build:
