@@ -11,6 +11,8 @@ type PersonDetailProps = {
   params: Promise<{ id: string; lang: string }>;
 };
 
+export const revalidate = 86400;
+
 export async function generateMetadata({ params }: PersonDetailProps) {
   const { id, lang } = await params;
   const person = await gerPerson(id, {

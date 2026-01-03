@@ -9,6 +9,8 @@ type MovieDetailProps = {
   params: Promise<{ id: string; lang: string }>;
 };
 
+export const revalidate = 86400;
+
 export async function generateMetadata({ params }: MovieDetailProps) {
   const { id, lang } = await params;
   const movie = await getMovie(id, {

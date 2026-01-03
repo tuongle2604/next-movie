@@ -7,6 +7,8 @@ interface DiscoverProps {
   params: Promise<{ lang: string; page: string }>;
 }
 
+export const revalidate = 86400;
+
 export async function generateMetadata() {
   return {
     title: topRated.title,

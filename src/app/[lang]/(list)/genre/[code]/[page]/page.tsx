@@ -6,6 +6,8 @@ export { generateDefaultStaticParams as generateStaticParams } from "@/lib/utils
 import { GENRES } from "@/lib/constant";
 import { notFound } from "next/navigation";
 
+export const revalidate = 86400;
+
 export default async function GenreDetail({
   params,
 }: {
