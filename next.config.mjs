@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  // output: "standalone",
   images: {
     deviceSizes: [640, 1200, 1920, 3840],
     remotePatterns: [
