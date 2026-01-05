@@ -11,7 +11,7 @@ type PersonDetailProps = {
   params: Promise<{ id: string; lang: string }>;
 };
 
-export const revalidate = 86400;
+export const dynamic = "force-static";
 
 export async function generateMetadata({ params }: PersonDetailProps) {
   const { id, lang } = await params;

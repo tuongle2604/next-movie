@@ -7,7 +7,7 @@ interface DiscoverProps {
   params: Promise<{ lang: string; page: string }>;
 }
 
-export const revalidate = 86400;
+export const dynamic = "force-static";
 
 export async function generateMetadata() {
   return {

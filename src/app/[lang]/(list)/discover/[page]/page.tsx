@@ -7,6 +7,8 @@ interface DiscoverProps {
   params: Promise<{ lang: string; page: string }>;
 }
 
+export const dynamic = "force-static";
+
 export default async function Discover({ params }: DiscoverProps) {
   const { lang, page = 1 } = await params;
 
