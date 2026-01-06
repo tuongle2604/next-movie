@@ -7,8 +7,8 @@ import SideBar from "@/components/sidebar";
 import HolyLoader from "holy-loader";
 import { ThemeProvider } from "@/components/theme-provider";
 import { home } from "@/data/metadata";
-import Logo from "./opengraph-image.png";
-
+// import Logo from "./opengraph-image.png";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -52,6 +52,7 @@ export default async function RootLayout({
           <main className="mt-14">{children}</main>
           <Footer />
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
