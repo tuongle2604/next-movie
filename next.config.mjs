@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-import { regions } from "./src/lib/regions.ts";
+import { regions } from "./src/lib/regions.js";
 
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const localePattern = regions
