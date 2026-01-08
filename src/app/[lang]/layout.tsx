@@ -9,15 +9,15 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { home } from "@/data/metadata";
 // import Logo from "./opengraph-image.png";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000/"),
+  metadataBase: new URL("https://next-movie.tuongle.dev/"),
   alternates: {
     canonical: "/",
     languages: {
-      "en-US": "/en-US",
-      "de-DE": "/de-DE",
+      en: "/en",
     },
   },
   title: {
@@ -53,6 +53,7 @@ export default async function RootLayout({
           <Footer />
         </ThemeProvider>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
