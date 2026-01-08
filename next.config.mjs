@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
+
+import { regions } from "./src/lib/regions.ts";
+
+const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const localePattern = regions
+  .map((o) => `${escapeRegex(o.code)}(?:/|$)`)
+  .join("|");
+
 const nextConfig = {
   // output: "standalone",
   images: {
@@ -10,9 +18,17 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      // rewrite no locale default to en
+      {
+        source: `/:path((?!${localePattern}).*)`,
+        destination: "/en/:path",
+      },
+    ];
+  },
   async redirects() {
     return [
-      // Basic redirect
       {
         source: "/genre/:slug",
         destination: "/genre/:slug/1",
